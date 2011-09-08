@@ -59,7 +59,7 @@
       authorImg = 'https:' + posts[0][18];
       updatedTimestamp = new Date(posts[0][5]);
       output += '<?xml version="1.0" encoding="UTF-8"?>\n';
-      output += '<output xmlns="http://www.w3.org/2005/Atom" xml:lang="en">\n';
+      output += '<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">\n';
       output += '<title>' + author + ' - Google+ User output</title>\n';
       output += '<link href="https://plus.google.com/' + id + '" rel="alternate"></link>\n';
       output += '<link href="http://gplusfeed.heroku.com/' + id + '" rel="self"></link>\n';
@@ -111,6 +111,7 @@
         output += "</entry>\n";
       }
     }
+    output += '</feed>\n';
     return output;
   };
   sendRequest = function(id, callback) {

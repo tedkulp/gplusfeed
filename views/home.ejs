@@ -1,34 +1,51 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Google+ User Feed</title>
-        <style>
-            body { font: 14px sans-serif }
-            #form-container { overflow: hidden }
-            form { border: 1px solid #d2d2d2; padding: 10px; float: left; background: #f1f1f1 }
-            form input[name='user'] { width: 16em }
-        </style>
-    </head>
-    <body>
-        <h1>Google+ User Feed</h1>
-        <div id="form-container">
-            <form>
-                User id <input name="user" placeholder="Eg, 123456789012345678901" />
-                <input type="submit" value="Get the feed" />
-            </form>
+  <head>
+    <title>PlusFeed - Unofficial Google+ User Feeds</title>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
+  </head>
+  <body>
+    <div id="gb">
+      <a href="http://plus.google.com">Google+</a>
+    </div>
+    <div id="header">
+      <h1>PlusFeed</h1>
+      <h2>Unofficial Google+ User Feeds</h2>
+      <span id="plusone"><g:plusone size="tall"></g:plusone></span>
+    </div>
+    <div id="content">
+      <div id="intro">
+        <h2>
+          Want a <span class="stress">feed</span> for your Google+ posts?
+        </h2>
+        <div id="inst">
+          <p>
+            Simply add a Google+ user number to the end of this site's URL to get an Atom feed of <em>public</em> posts.
+          </p>
+          <p>
+            Example: <a href="http://gplusfeed.herokuapp.com/116149856732656977048">http://gplusfeed.herokuapp.com/<strong>116149856732656977048</strong></a>
+          </p>
+          <p>
+          <br/>
+          You can grab the source for this app on GitHub <a href="https://github.com/tedkulp/gplusfeed">here</a> <em>(original: <a href="https://github.com/russellbeattie/plusfeed">here</a>)</em>.
+          </p>
+          <p>
+          <em>Originally created by <a href="http://www.russellbeattie.com">Russell Beattie</a></em><br />
+          <em>Ported to node.js by <a href="http://tedkulp.com">Ted Kulp</a></em>
+          </p>
         </div>
-        <p><a href="https://github.com/frosas/google-plus-user-feed">Source code</a></p>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-        <script>
-            $('form').submit(function() {
-                var userId = $('form input[name=user]').val()
-                if (! isNaN(parseInt(userId))) {
-                    open(userId)
-                } else {
-                    alert("'" + userId + "' is not valid user id")
-                }
-                return false
-            })
-        </script>
-    </body>
+      </div>
+    </div>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-10979162-5']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+       var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+       ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+       var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+       })();
+    </script>
+  </body>
 </html>

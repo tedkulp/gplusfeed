@@ -1,0 +1,168 @@
+@import url(//fonts.googleapis.com/css?family=Open+Sans);
+
+body{
+    font-family: sans-serif;
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px;
+    color: #888;
+    min-width: 800px;
+}
+
+li{
+    font-size: 11px;
+}
+
+a{
+    text-decoration: none;
+    color: #36C;
+}
+
+#top{
+    text-align: left;
+}
+
+#gb{
+height: 29px;
+width: 100%;
+background-color: #2D2D2D;
+border-bottom: 1px solid #000;
+font-size: 13px;
+position: relative;
+}
+
+#gb span{
+    position: absolute;
+    top: 8px;
+    left: 16px;
+}
+
+#gb a{
+    color: #CCC;
+    font-weight: bold;
+    margin: 0px;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+}
+
+#header{
+height: 55px;
+width: 100%;
+border-bottom: 1px solid #E5E5E5;
+padding-top: 18px;
+background: whiteSmoke url(/plusfeed.png) no-repeat 20px;
+}
+
+h1, h2{
+font-family: 'Open Sans';
+font-weight: normal;
+}
+
+#header h1{
+font-size: 26px;
+color: #3079ED;
+margin: 0px;
+padding: 0px 10px 0px 80px;
+display: inline;
+}
+
+#header h2{
+font-size: 16px;
+margin: 0px;
+padding: 0px;
+display: inline;
+}
+
+#plusone {
+position: absolute;
+top: 36px;
+right: 30px;
+}
+
+#content{
+    padding: 0px 16px;
+}
+
+#intro{
+    padding: 10px;
+}
+
+#intro h2{
+    font-size: 36px;
+    color: #333;
+}
+
+#inst{
+font-size: 16px;
+padding: 5px 20px;
+color: #666;
+}
+
+.center{
+    text-align: center;
+}
+.right{
+    text-align: right;
+}
+
+#posts{
+text-align: center;
+}
+
+.stress{
+    color: #DD4B39;
+}
+
+#posts h2 {
+color: #333;
+margin: 20px 0px;
+border-top: 1px solid #ccc;
+padding-top: 20px;
+text-align: left;
+}
+
+.post{
+margin: 5px;
+width: 350px;
+height: 350px;
+padding: 10px;
+border: 1px solid #ccc;
+font-size: 13px;
+text-align: left;
+display: inline-block;
+vertical-align: top;
+overflow: auto;
+color: #666;
+word-wrap: break-word;
+}
+
+.post img{
+max-width: 325px;
+}
+
+.thumb {
+float: left;
+margin-right: 7px;
+width: 24px;
+height: 24px;
+}
+
+.post h3{
+    padding: 4px 0px;
+    margin: 0px;
+    font-size: 20px;
+}
+
+.post h3 a{
+    color: #DD4B39;
+}
+
+.updated{
+    font-style: italic;
+    margin-top: 4px;
+}
+
+.updated a{
+    color: #333;
+}
