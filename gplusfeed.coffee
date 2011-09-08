@@ -86,11 +86,11 @@ processResponse = (id, content) ->
         desc = desc + ' <br /><br /><a href="https://plus.google.com/' + post[44][1] + '">' + post[44][0] + '</a> originally shared this post: '
 
       if post[66]
-        if post[66][0]
-          if post[66][0][1]
+        if post[66].length > 0
+          if post[66][0].length > 6
             desc = desc + ' <br/><br/><a href="' + post[66][0][1] + '">' + post[66][0][3] + '</a>'
 
-            if post[66][0][6]
+            if post[66][0][6] and post[66][0][6][0] and post[66][0][6][0].length > 0
               if post[66][0][6][0][1].indexOf('image') > -1
                 desc = desc + ' <p><img src="http:' + post[66][0][6][0][2] + '"/></p>'
               else
