@@ -2,9 +2,9 @@
   "name": "gplusfeed",
   "version": "0.0.1",
   "dependencies": {
-      "express": "2.4.6"
-      "dateformatjs": "0.0.6"
-      "ejs": "0.4.3"
+      "express": "2.4.6",
+      "dateformatjs": "0.0.6",
+      "ejs": "0.4.3",
       "request": "2.1.1"
     }
 }
