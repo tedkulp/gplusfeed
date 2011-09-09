@@ -17,6 +17,12 @@ app.configure () ->
   app.set 'view options',
     layout: false
 
+hasIndex = (ary, idx) ->
+  (ary != null and typeof ary != 'undefined' and ary.length > idx and typeof ary[idx] != 'undefined' and ary[idx] != null)
+
+String.prototype.trim = () ->
+  this.replace(/^\s+|\s+$/g, '')
+
 htmlSafe = (s) ->
   s = s.replace /&/g, "&amp;"
   s = s.replace /</g, "&lt;"
@@ -49,7 +55,6 @@ getPostTitle = (desc) ->
     sentend = 75
 
   ptitle.slice(0, sentend)
-
 processResponse = (id, content) ->
   output = ''
   posts = getPosts content
@@ -85,23 +90,25 @@ processResponse = (id, content) ->
       if post[44]
         desc = desc + ' <br /><br /><a href="https://plus.google.com/' + post[44][1] + '">' + post[44][0] + '</a> originally shared this post: '
 
-      if post[66]
-        if post[66].length > 0
-          if post[66][0].length > 6
-            desc = desc + ' <br/><br/><a href="' + post[66][0][1] + '">' + post[66][0][3] + '</a>'
+      if hasIndex(post, 66)
+        if hasIndex(post[66][0], 1) and hasIndex(post[66][0], 3)
+          desc = desc + ' <br/><br/><a href="' + post[66][0][1] + '">' + post[66][0][3] + '</a>'
 
-            if post[66][0][6] and post[66][0][6][0] and post[66][0][6][0].length > 0
-              if post[66][0][6][0][1].indexOf('image') > -1
-                desc = desc + ' <p><img src="http:' + post[66][0][6][0][2] + '"/></p>'
-              else
-                try
-                  desc = desc + ' <a href="' + post[66][0][6][0][8] + '">' + post[66][0][6][0][8] + '</a>'
+        if hasIndex(post[66][0], 6) and hasIndex(post[66][0][6], 0)
+          try
+            if post[66][0][6][0][1].indexOf('image') > -1
+              desc = desc + ' <p><img src="http:' + post[66][0][6][0][2] + '"/>'
+              if hasIndex(post[66][0][6][0], 7)
+                desc += '<br />' + post[66][0][6][0][7]
+              desc += '</p>'
+            else
+              desc = desc + ' <a href="' + post[66][0][6][0][8] + '">' + post[66][0][6][0][8] + '</a>'
 
       if desc == ''
         desc = permalink
 
       output += "<entry>\n"
-      output += '<title>' + htmlSafe(getPostTitle(desc)) + '</title>\n'
+      output += '<title>' + htmlSafe(getPostTitle(desc)).trim() + '</title>\n'
       output += '<link href="' + permalink + '" rel="alternate"></link>\n'
       output += '<updated>' + atom_format.format(postDate) + '</updated>\n'
       output += '<id>tag:plus.google.com,' + ymd_format.format(postDate) + ':/' + id + '/</id>\n'
