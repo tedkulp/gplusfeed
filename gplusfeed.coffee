@@ -42,9 +42,9 @@ getPosts = (content) ->
     ret = data[1][0]
 
 getPostTitle = (desc) ->
-  ptitle = encoder.encoder.htmlDecode desc
-  ptitle = ptitle.replace(/<.*?>/g, ' ')
+  ptitle = desc.replace(/<.*?>/g, ' ')
   ptitle = ptitle.replace(/\s+/g, ' ')
+  ptitle = encoder.encoder.htmlDecode ptitle
 
   sentend = 75
 

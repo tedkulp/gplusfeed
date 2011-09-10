@@ -44,9 +44,9 @@
   };
   getPostTitle = function(desc) {
     var m, ptitle, sentend;
-    ptitle = encoder.encoder.htmlDecode(desc);
-    ptitle = ptitle.replace(/<.*?>/g, ' ');
+    ptitle = desc.replace(/<.*?>/g, ' ');
     ptitle = ptitle.replace(/\s+/g, ' ');
+    ptitle = encoder.encoder.htmlDecode(ptitle);
     sentend = 75;
     m = ptitle.split(/[\.!\?\:]\s+/);
     if (m && m[0]) {
