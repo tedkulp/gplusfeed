@@ -24,9 +24,10 @@ String.prototype.trim = () ->
   this.replace(/^\s+|\s+$/g, '')
 
 htmlSafe = (s) ->
-  s = s.replace /&/g, "&amp;"
   s = s.replace /</g, "&lt;"
-  s.replace />/g, "&gt;"
+  s = s.replace />/g, "&gt;"
+  s = s.replace /&(?!amp|gt|lt)/g, "&amp;"
+  s
 
 getPosts = (content) ->
   content = content.slice(8)

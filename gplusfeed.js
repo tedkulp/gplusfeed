@@ -24,9 +24,10 @@
     return this.replace(/^\s+|\s+$/g, '');
   };
   htmlSafe = function(s) {
-    s = s.replace(/&/g, "&amp;");
     s = s.replace(/</g, "&lt;");
-    return s.replace(/>/g, "&gt;");
+    s = s.replace(/>/g, "&gt;");
+    s = s.replace(/&(?!amp|gt|lt)/g, "&amp;");
+    return s;
   };
   getPosts = function(content) {
     var data, ret;
